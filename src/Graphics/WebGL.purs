@@ -64,21 +64,7 @@ getWebGLContextWithAttrs canvas attrs = runFn4 getWebGLContextWithAttrsImpl canv
 getWebGLContext :: forall eff. CanvasElement -> Eff (canvas :: Canvas | eff) (Maybe WebGLContext)
 getWebGLContext canvas = getWebGLContextWithAttrs canvas defaultWebGLContextAttrs
 
--- finally the WebGL monad
-
-{-- runWebGL :: forall eff a. WebGLContext --}
-{--          -> ReaderT WebGLContext (Eff (canvas :: Canvas | eff)) (Either WebGLError a) --}
-{--          -> Eff (canvas :: Canvas | eff) (Either WebGLError a) --}
-{-- runWebGL ctx r = runReaderT r ctx --}
-
-{-- blorp :: WebGLContext -> Either WebGLError Unit --}
-{-- blorp = const (Right unit) --}
-
-{-- example :: forall eff. Eff (canvas :: Canvas | eff) (Either WebGLError Boolean) --}
-{-- example = do --}
-{--   (Just canvas) <- getCanvasElementById "nope" --}
-{--   (Just ctx)    <- getWebGLContext canvas --}
-{--   runWebGL ctx (return $ Left WebGLError) --}
+-- webgl monad HOMG
 
 data BufferType = Depth | Color | Stencil
 
@@ -90,20 +76,42 @@ toBufferBit Stencil = Enum.stencilBufferBit
 data WebGLError = WebGLError
 
 data WebGLFree more
-  = IsContextLost more
+  = IsContextLost (Boolean -> more)
   | Clear BufferType more
 
 type WebGL a = FreeC WebGLFree a
 
-isContextLost :: WebGL Unit
-isContextLost = liftFC $ IsContextLost unit
+isContextLost :: WebGL Boolean
+isContextLost = liftFC $ IsContextLost id
 
 clear :: BufferType -> WebGL Unit
 clear b = liftFC $ Clear b unit
 
-runWebGL :: forall eff a. WebGLContext -> (WebGLError -> Eff (canvas :: Canvas | eff) a) -> WebGL a -> Eff (canvas :: Canvas | eff) a
-runWebGL ctx onError = runFreeCM interp
+runWebGL :: forall eff a. WebGLContext
+         -> (WebGLError -> Eff (canvas :: Canvas | eff) Unit)
+         -> WebGL a
+         -> Eff (canvas :: Canvas | eff) a
+runWebGL ctx onError = runFreeCM (interp ctx onError return)
+
+debugWebGL :: forall eff a. WebGLContext
+           -> (WebGLError -> Eff (canvas :: Canvas | eff) Unit)
+           -> WebGL a
+           -> Eff (canvas :: Canvas | eff) a
+debugWebGL ctx onError = runFreeCM (interp ctx onError debug)
   where
-    interp :: forall eff. Natural WebGLFree (Eff (canvas :: Canvas | eff))
-    interp (IsContextLost next) = const next <$> GL.isContextLost ctx
-    interp (Clear bufferType next) = const next <$> GL.clear ctx (toBufferBit bufferType)
+    debug :: forall b. b -> Eff (canvas :: Canvas | eff) b
+    debug val = do
+      err <- GL.getError ctx
+      unless (err == Enum.noError) (onError $ toWebGLError err)
+      return val
+
+interp :: forall eff. WebGLContext
+       -> (WebGLError -> Eff (canvas :: Canvas | eff) Unit)
+       -> (forall a. a -> Eff (canvas :: Canvas | eff) a)
+       -> Natural WebGLFree (Eff (canvas :: Canvas | eff))
+interp ctx onError after method = case method of
+    (IsContextLost bool)    -> bool <$> GL.isContextLost ctx >>= after
+    (Clear bufferType next) -> const next <$> GL.clear ctx (toBufferBit bufferType) >>= after
+
+toWebGLError :: Number -> WebGLError
+toWebGLError _ = WebGLError

@@ -16,6 +16,7 @@
     "purescript-arraybuffer-types":     "0.1.*",
     "purescript-canvas":                "0.2.*",
     "purescript-either":                "0.1.*",
+    "purescript-foldable-traversable":  "0.3.*",
     "purescript-free":                  "0.4.*",
     "purescript-monad-eff":             "0.1.*",
     "purescript-transformers":          "0.5.*",

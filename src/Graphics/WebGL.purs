@@ -8,6 +8,7 @@ import Graphics.Canvas (Canvas (), CanvasElement (), getCanvasElementById)
 import qualified Graphics.WebGL.Raw.Enums as Enum
 import qualified Graphics.WebGL.Raw       as Raw
 
+import Control.Bind
 import Control.Monad
 import Control.Monad.Eff
 import Control.Monad.Eff.Class
@@ -76,13 +77,40 @@ toBufferBit Stencil = Enum.stencilBufferBit
 
 data WebGLError = WebGLError
 
-type WebGL a = forall eff. ReaderT WebGLContext (Either WebGLError) (Eff (canvas :: Canvas | eff) a)
+type WebGL a = forall eff. ReaderT WebGLContext (Eff (canvas :: Canvas | eff)) (Either WebGLError a)
 
 isContextLost :: WebGL Boolean
-isContextLost = Raw.isContextLost <$> ask
+isContextLost = do
+  ctx <- ask
+  liftReaderT do
+    bool <- Raw.isContextLost ctx
+    err  <- Raw.getError ctx
+    case err == Enum.noError of
+      true -> return $ Right bool
+      _    -> return $ Left WebGLError
+
+  {-- Right <$> (Raw.isContextLost <$> ask) --}
+  {-- x <- ask --}
+  return $ Left WebGLError
+  {-- bool <- Raw.isContextLost ctx --}
+  {-- liftReaderT $ return $ Right bool --}
 
 getError :: WebGL Number
-getError = Raw.getError <$> ask
+getError = do
+  ctx <- ask
+  liftReaderT do
+    err <- Raw.getError ctx
+    return $ Right err
+
+{-- getSupportedExtensions :: WebGL [String] --}
+{-- getSupportedExtensions = do --}
+{--     ctx <- ask --}
+{--     exts <- Raw.getSupportedExtensions <$> ask --}
+{--     liftReaderT $ liftEff do --}
+{--       err <- Raw.getError ctx --}
+{--       case (err == Enum.noError) of --}
+{--         true -> Right exts --}
+{--         _    -> Left WebGLError --}
 
 myProg :: WebGL Boolean
 myProg = do
@@ -94,4 +122,4 @@ main :: forall eff. Eff (canvas :: Canvas | eff) (Either WebGLError Boolean)
 main = do
   (Just el) <- getCanvasElementById "webgl"
   (Just gl) <- getWebGLContext el
-  sequence $ runReaderT myProg gl
+  runReaderT myProg gl

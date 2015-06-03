@@ -150,9 +150,9 @@ foreign import getContextAttributesImpl """
       return webgl.getContextAttributes();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLContextAttributes)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLContextAttributes)
 
-getContextAttributes :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLContextAttributes
+getContextAttributes :: WebGLContext -> Eff (canvas :: Canvas) WebGLContextAttributes
 getContextAttributes = runFn1 getContextAttributesImpl
 
 foreign import isContextLostImpl """
@@ -161,9 +161,9 @@ foreign import isContextLostImpl """
       return webgl.isContextLost();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) Boolean)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) Boolean)
 
-isContextLost :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) Boolean
+isContextLost :: WebGLContext -> Eff (canvas :: Canvas) Boolean
 isContextLost = runFn1 isContextLostImpl
 
 foreign import getSupportedExtensionsImpl """
@@ -172,9 +172,9 @@ foreign import getSupportedExtensionsImpl """
       return webgl.getSupportedExtensions();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) [DOMString])
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) [DOMString])
 
-getSupportedExtensions :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) [DOMString]
+getSupportedExtensions :: WebGLContext -> Eff (canvas :: Canvas) [DOMString]
 getSupportedExtensions = runFn1 getSupportedExtensionsImpl
 
 foreign import getExtensionImpl """
@@ -183,9 +183,9 @@ foreign import getExtensionImpl """
       return webgl.getExtension(name);
     };
   }
-""" :: forall eff a. Fn2 WebGLContext DOMString (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn2 WebGLContext DOMString (Eff (canvas :: Canvas) a)
 
-getExtension :: forall eff a. WebGLContext -> DOMString -> Eff (canvas :: Canvas | eff) a
+getExtension :: forall a. WebGLContext -> DOMString -> Eff (canvas :: Canvas) a
 getExtension = runFn2 getExtensionImpl
 
 foreign import activeTextureImpl """
@@ -194,9 +194,9 @@ foreign import activeTextureImpl """
       return webgl.activeTexture(texture);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-activeTexture :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+activeTexture :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 activeTexture = runFn2 activeTextureImpl
 
 foreign import attachShaderImpl """
@@ -205,9 +205,9 @@ foreign import attachShaderImpl """
       return webgl.attachShader(program, shader);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram WebGLShader (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLProgram WebGLShader (Eff (canvas :: Canvas) Unit)
 
-attachShader :: forall eff. WebGLContext -> WebGLProgram -> WebGLShader -> Eff (canvas :: Canvas | eff) Unit
+attachShader :: WebGLContext -> WebGLProgram -> WebGLShader -> Eff (canvas :: Canvas) Unit
 attachShader = runFn3 attachShaderImpl
 
 foreign import bindAttribLocationImpl """
@@ -216,9 +216,9 @@ foreign import bindAttribLocationImpl """
       return webgl.bindAttribLocation(program, index, name);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLProgram GLuint DOMString (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLProgram GLuint DOMString (Eff (canvas :: Canvas) Unit)
 
-bindAttribLocation :: forall eff. WebGLContext -> WebGLProgram -> GLuint -> DOMString -> Eff (canvas :: Canvas | eff) Unit
+bindAttribLocation :: WebGLContext -> WebGLProgram -> GLuint -> DOMString -> Eff (canvas :: Canvas) Unit
 bindAttribLocation = runFn4 bindAttribLocationImpl
 
 foreign import bindBufferImpl """
@@ -227,9 +227,9 @@ foreign import bindBufferImpl """
       return webgl.bindBuffer(target, buffer);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum WebGLBuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum WebGLBuffer (Eff (canvas :: Canvas) Unit)
 
-bindBuffer :: forall eff. WebGLContext -> GLenum -> WebGLBuffer -> Eff (canvas :: Canvas | eff) Unit
+bindBuffer :: WebGLContext -> GLenum -> WebGLBuffer -> Eff (canvas :: Canvas) Unit
 bindBuffer = runFn3 bindBufferImpl
 
 foreign import bindFramebufferImpl """
@@ -238,9 +238,9 @@ foreign import bindFramebufferImpl """
       return webgl.bindFramebuffer(target, framebuffer);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum WebGLFramebuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum WebGLFramebuffer (Eff (canvas :: Canvas) Unit)
 
-bindFramebuffer :: forall eff. WebGLContext -> GLenum -> WebGLFramebuffer -> Eff (canvas :: Canvas | eff) Unit
+bindFramebuffer :: WebGLContext -> GLenum -> WebGLFramebuffer -> Eff (canvas :: Canvas) Unit
 bindFramebuffer = runFn3 bindFramebufferImpl
 
 foreign import bindRenderbufferImpl """
@@ -249,9 +249,9 @@ foreign import bindRenderbufferImpl """
       return webgl.bindRenderbuffer(target, renderbuffer);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum WebGLRenderbuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum WebGLRenderbuffer (Eff (canvas :: Canvas) Unit)
 
-bindRenderbuffer :: forall eff. WebGLContext -> GLenum -> WebGLRenderbuffer -> Eff (canvas :: Canvas | eff) Unit
+bindRenderbuffer :: WebGLContext -> GLenum -> WebGLRenderbuffer -> Eff (canvas :: Canvas) Unit
 bindRenderbuffer = runFn3 bindRenderbufferImpl
 
 foreign import bindTextureImpl """
@@ -260,9 +260,9 @@ foreign import bindTextureImpl """
       return webgl.bindTexture(target, texture);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum WebGLTexture (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum WebGLTexture (Eff (canvas :: Canvas) Unit)
 
-bindTexture :: forall eff. WebGLContext -> GLenum -> WebGLTexture -> Eff (canvas :: Canvas | eff) Unit
+bindTexture :: WebGLContext -> GLenum -> WebGLTexture -> Eff (canvas :: Canvas) Unit
 bindTexture = runFn3 bindTextureImpl
 
 foreign import blendColorImpl """
@@ -271,9 +271,9 @@ foreign import blendColorImpl """
       return webgl.blendColor(red, green, blue, alpha);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLclampf GLclampf GLclampf GLclampf (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLclampf GLclampf GLclampf GLclampf (Eff (canvas :: Canvas) Unit)
 
-blendColor :: forall eff. WebGLContext -> GLclampf -> GLclampf -> GLclampf -> GLclampf -> Eff (canvas :: Canvas | eff) Unit
+blendColor :: WebGLContext -> GLclampf -> GLclampf -> GLclampf -> GLclampf -> Eff (canvas :: Canvas) Unit
 blendColor = runFn5 blendColorImpl
 
 foreign import blendEquationImpl """
@@ -282,9 +282,9 @@ foreign import blendEquationImpl """
       return webgl.blendEquation(mode);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-blendEquation :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+blendEquation :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 blendEquation = runFn2 blendEquationImpl
 
 foreign import blendEquationSeparateImpl """
@@ -293,9 +293,9 @@ foreign import blendEquationSeparateImpl """
       return webgl.blendEquationSeparate(modeRGB, modeAlpha);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-blendEquationSeparate :: forall eff. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+blendEquationSeparate :: WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 blendEquationSeparate = runFn3 blendEquationSeparateImpl
 
 foreign import blendFuncImpl """
@@ -304,9 +304,9 @@ foreign import blendFuncImpl """
       return webgl.blendFunc(sfactor, dfactor);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-blendFunc :: forall eff. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+blendFunc :: WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 blendFunc = runFn3 blendFuncImpl
 
 foreign import blendFuncSeparateImpl """
@@ -315,9 +315,9 @@ foreign import blendFuncSeparateImpl """
       return webgl.blendFuncSeparate(srcRGB, dstRGB, srcAlpha, dstAlpha);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLenum GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLenum GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-blendFuncSeparate :: forall eff. WebGLContext -> GLenum -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+blendFuncSeparate :: WebGLContext -> GLenum -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 blendFuncSeparate = runFn5 blendFuncSeparateImpl
 
 foreign import bufferDataImpl """
@@ -326,9 +326,9 @@ foreign import bufferDataImpl """
       return webgl.bufferData(target, data, usage);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum Float32Array GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum Float32Array GLenum (Eff (canvas :: Canvas) Unit)
 
-bufferData :: forall eff. WebGLContext -> GLenum -> Float32Array -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+bufferData :: WebGLContext -> GLenum -> Float32Array -> GLenum -> Eff (canvas :: Canvas) Unit
 bufferData = runFn4 bufferDataImpl
 
 foreign import bufferSubDataImpl """
@@ -337,9 +337,9 @@ foreign import bufferSubDataImpl """
       return webgl.bufferSubData(target, offset, data);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLintptr ArrayBufferView (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLintptr ArrayBufferView (Eff (canvas :: Canvas) Unit)
 
-bufferSubData :: forall eff. WebGLContext -> GLenum -> GLintptr -> ArrayBufferView -> Eff (canvas :: Canvas | eff) Unit
+bufferSubData :: WebGLContext -> GLenum -> GLintptr -> ArrayBufferView -> Eff (canvas :: Canvas) Unit
 bufferSubData = runFn4 bufferSubDataImpl
 
 foreign import checkFramebufferStatusImpl """
@@ -348,9 +348,9 @@ foreign import checkFramebufferStatusImpl """
       return webgl.checkFramebufferStatus(target);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) GLenum)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) GLenum)
 
-checkFramebufferStatus :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) GLenum
+checkFramebufferStatus :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) GLenum
 checkFramebufferStatus = runFn2 checkFramebufferStatusImpl
 
 foreign import clearImpl """
@@ -359,9 +359,9 @@ foreign import clearImpl """
       return webgl.clear(mask);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLbitfield (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLbitfield (Eff (canvas :: Canvas) Unit)
 
-clear :: forall eff. WebGLContext -> GLbitfield -> Eff (canvas :: Canvas | eff) Unit
+clear :: WebGLContext -> GLbitfield -> Eff (canvas :: Canvas) Unit
 clear = runFn2 clearImpl
 
 foreign import clearColorImpl """
@@ -370,9 +370,9 @@ foreign import clearColorImpl """
       return webgl.clearColor(red, green, blue, alpha);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLclampf GLclampf GLclampf GLclampf (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLclampf GLclampf GLclampf GLclampf (Eff (canvas :: Canvas) Unit)
 
-clearColor :: forall eff. WebGLContext -> GLclampf -> GLclampf -> GLclampf -> GLclampf -> Eff (canvas :: Canvas | eff) Unit
+clearColor :: WebGLContext -> GLclampf -> GLclampf -> GLclampf -> GLclampf -> Eff (canvas :: Canvas) Unit
 clearColor = runFn5 clearColorImpl
 
 foreign import clearDepthImpl """
@@ -381,9 +381,9 @@ foreign import clearDepthImpl """
       return webgl.clearDepth(depth);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLclampf (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLclampf (Eff (canvas :: Canvas) Unit)
 
-clearDepth :: forall eff. WebGLContext -> GLclampf -> Eff (canvas :: Canvas | eff) Unit
+clearDepth :: WebGLContext -> GLclampf -> Eff (canvas :: Canvas) Unit
 clearDepth = runFn2 clearDepthImpl
 
 foreign import clearStencilImpl """
@@ -392,9 +392,9 @@ foreign import clearStencilImpl """
       return webgl.clearStencil(s);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLint (Eff (canvas :: Canvas) Unit)
 
-clearStencil :: forall eff. WebGLContext -> GLint -> Eff (canvas :: Canvas | eff) Unit
+clearStencil :: WebGLContext -> GLint -> Eff (canvas :: Canvas) Unit
 clearStencil = runFn2 clearStencilImpl
 
 foreign import colorMaskImpl """
@@ -403,9 +403,9 @@ foreign import colorMaskImpl """
       return webgl.colorMask(red, green, blue, alpha);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLboolean GLboolean GLboolean GLboolean (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLboolean GLboolean GLboolean GLboolean (Eff (canvas :: Canvas) Unit)
 
-colorMask :: forall eff. WebGLContext -> GLboolean -> GLboolean -> GLboolean -> GLboolean -> Eff (canvas :: Canvas | eff) Unit
+colorMask :: WebGLContext -> GLboolean -> GLboolean -> GLboolean -> GLboolean -> Eff (canvas :: Canvas) Unit
 colorMask = runFn5 colorMaskImpl
 
 foreign import compileShaderImpl """
@@ -414,9 +414,9 @@ foreign import compileShaderImpl """
       return webgl.compileShader(shader);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas) Unit)
 
-compileShader :: forall eff. WebGLContext -> WebGLShader -> Eff (canvas :: Canvas | eff) Unit
+compileShader :: WebGLContext -> WebGLShader -> Eff (canvas :: Canvas) Unit
 compileShader = runFn2 compileShaderImpl
 
 foreign import copyTexImage2DImpl """
@@ -425,9 +425,9 @@ foreign import copyTexImage2DImpl """
       return webgl.copyTexImage2D(target, level, internalformat, x, y, width, height, border);
     };
   }
-""" :: forall eff. Fn9 WebGLContext GLenum GLint GLenum GLint GLint GLsizei GLsizei GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn9 WebGLContext GLenum GLint GLenum GLint GLint GLsizei GLsizei GLint (Eff (canvas :: Canvas) Unit)
 
-copyTexImage2D :: forall eff. WebGLContext -> GLenum -> GLint -> GLenum -> GLint -> GLint -> GLsizei -> GLsizei -> GLint -> Eff (canvas :: Canvas | eff) Unit
+copyTexImage2D :: WebGLContext -> GLenum -> GLint -> GLenum -> GLint -> GLint -> GLsizei -> GLsizei -> GLint -> Eff (canvas :: Canvas) Unit
 copyTexImage2D = runFn9 copyTexImage2DImpl
 
 foreign import copyTexSubImage2DImpl """
@@ -436,9 +436,9 @@ foreign import copyTexSubImage2DImpl """
       return webgl.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
     };
   }
-""" :: forall eff. Fn9 WebGLContext GLenum GLint GLint GLint GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn9 WebGLContext GLenum GLint GLint GLint GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas) Unit)
 
-copyTexSubImage2D :: forall eff. WebGLContext -> GLenum -> GLint -> GLint -> GLint -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas | eff) Unit
+copyTexSubImage2D :: WebGLContext -> GLenum -> GLint -> GLint -> GLint -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas) Unit
 copyTexSubImage2D = runFn9 copyTexSubImage2DImpl
 
 foreign import createBufferImpl """
@@ -447,9 +447,9 @@ foreign import createBufferImpl """
       return webgl.createBuffer();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLBuffer)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLBuffer)
 
-createBuffer :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLBuffer
+createBuffer :: WebGLContext -> Eff (canvas :: Canvas) WebGLBuffer
 createBuffer = runFn1 createBufferImpl
 
 foreign import createFramebufferImpl """
@@ -458,9 +458,9 @@ foreign import createFramebufferImpl """
       return webgl.createFramebuffer();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLFramebuffer)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLFramebuffer)
 
-createFramebuffer :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLFramebuffer
+createFramebuffer :: WebGLContext -> Eff (canvas :: Canvas) WebGLFramebuffer
 createFramebuffer = runFn1 createFramebufferImpl
 
 foreign import createProgramImpl """
@@ -469,9 +469,9 @@ foreign import createProgramImpl """
       return webgl.createProgram();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLProgram)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLProgram)
 
-createProgram :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLProgram
+createProgram :: WebGLContext -> Eff (canvas :: Canvas) WebGLProgram
 createProgram = runFn1 createProgramImpl
 
 foreign import createRenderbufferImpl """
@@ -480,9 +480,9 @@ foreign import createRenderbufferImpl """
       return webgl.createRenderbuffer();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLRenderbuffer)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLRenderbuffer)
 
-createRenderbuffer :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLRenderbuffer
+createRenderbuffer :: WebGLContext -> Eff (canvas :: Canvas) WebGLRenderbuffer
 createRenderbuffer = runFn1 createRenderbufferImpl
 
 foreign import createShaderImpl """
@@ -491,9 +491,9 @@ foreign import createShaderImpl """
       return webgl.createShader(type);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) WebGLShader)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) WebGLShader)
 
-createShader :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) WebGLShader
+createShader :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) WebGLShader
 createShader = runFn2 createShaderImpl
 
 foreign import createTextureImpl """
@@ -502,9 +502,9 @@ foreign import createTextureImpl """
       return webgl.createTexture();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) WebGLTexture)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) WebGLTexture)
 
-createTexture :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) WebGLTexture
+createTexture :: WebGLContext -> Eff (canvas :: Canvas) WebGLTexture
 createTexture = runFn1 createTextureImpl
 
 foreign import cullFaceImpl """
@@ -513,9 +513,9 @@ foreign import cullFaceImpl """
       return webgl.cullFace(mode);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-cullFace :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+cullFace :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 cullFace = runFn2 cullFaceImpl
 
 foreign import deleteBufferImpl """
@@ -524,9 +524,9 @@ foreign import deleteBufferImpl """
       return webgl.deleteBuffer(buffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLBuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLBuffer (Eff (canvas :: Canvas) Unit)
 
-deleteBuffer :: forall eff. WebGLContext -> WebGLBuffer -> Eff (canvas :: Canvas | eff) Unit
+deleteBuffer :: WebGLContext -> WebGLBuffer -> Eff (canvas :: Canvas) Unit
 deleteBuffer = runFn2 deleteBufferImpl
 
 foreign import deleteFramebufferImpl """
@@ -535,9 +535,9 @@ foreign import deleteFramebufferImpl """
       return webgl.deleteFramebuffer(framebuffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLFramebuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLFramebuffer (Eff (canvas :: Canvas) Unit)
 
-deleteFramebuffer :: forall eff. WebGLContext -> WebGLFramebuffer -> Eff (canvas :: Canvas | eff) Unit
+deleteFramebuffer :: WebGLContext -> WebGLFramebuffer -> Eff (canvas :: Canvas) Unit
 deleteFramebuffer = runFn2 deleteFramebufferImpl
 
 foreign import deleteProgramImpl """
@@ -546,9 +546,9 @@ foreign import deleteProgramImpl """
       return webgl.deleteProgram(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) Unit)
 
-deleteProgram :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) Unit
+deleteProgram :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) Unit
 deleteProgram = runFn2 deleteProgramImpl
 
 foreign import deleteRenderbufferImpl """
@@ -557,9 +557,9 @@ foreign import deleteRenderbufferImpl """
       return webgl.deleteRenderbuffer(renderbuffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLRenderbuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLRenderbuffer (Eff (canvas :: Canvas) Unit)
 
-deleteRenderbuffer :: forall eff. WebGLContext -> WebGLRenderbuffer -> Eff (canvas :: Canvas | eff) Unit
+deleteRenderbuffer :: WebGLContext -> WebGLRenderbuffer -> Eff (canvas :: Canvas) Unit
 deleteRenderbuffer = runFn2 deleteRenderbufferImpl
 
 foreign import deleteShaderImpl """
@@ -568,9 +568,9 @@ foreign import deleteShaderImpl """
       return webgl.deleteShader(shader);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas) Unit)
 
-deleteShader :: forall eff. WebGLContext -> WebGLShader -> Eff (canvas :: Canvas | eff) Unit
+deleteShader :: WebGLContext -> WebGLShader -> Eff (canvas :: Canvas) Unit
 deleteShader = runFn2 deleteShaderImpl
 
 foreign import deleteTextureImpl """
@@ -579,9 +579,9 @@ foreign import deleteTextureImpl """
       return webgl.deleteTexture(texture);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLTexture (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLTexture (Eff (canvas :: Canvas) Unit)
 
-deleteTexture :: forall eff. WebGLContext -> WebGLTexture -> Eff (canvas :: Canvas | eff) Unit
+deleteTexture :: WebGLContext -> WebGLTexture -> Eff (canvas :: Canvas) Unit
 deleteTexture = runFn2 deleteTextureImpl
 
 foreign import depthFuncImpl """
@@ -590,9 +590,9 @@ foreign import depthFuncImpl """
       return webgl.depthFunc(func);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-depthFunc :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+depthFunc :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 depthFunc = runFn2 depthFuncImpl
 
 foreign import depthMaskImpl """
@@ -601,9 +601,9 @@ foreign import depthMaskImpl """
       return webgl.depthMask(flag);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLboolean (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLboolean (Eff (canvas :: Canvas) Unit)
 
-depthMask :: forall eff. WebGLContext -> GLboolean -> Eff (canvas :: Canvas | eff) Unit
+depthMask :: WebGLContext -> GLboolean -> Eff (canvas :: Canvas) Unit
 depthMask = runFn2 depthMaskImpl
 
 foreign import depthRangeImpl """
@@ -612,9 +612,9 @@ foreign import depthRangeImpl """
       return webgl.depthRange(zNear, zFar);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLclampf GLclampf (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLclampf GLclampf (Eff (canvas :: Canvas) Unit)
 
-depthRange :: forall eff. WebGLContext -> GLclampf -> GLclampf -> Eff (canvas :: Canvas | eff) Unit
+depthRange :: WebGLContext -> GLclampf -> GLclampf -> Eff (canvas :: Canvas) Unit
 depthRange = runFn3 depthRangeImpl
 
 foreign import detachShaderImpl """
@@ -623,9 +623,9 @@ foreign import detachShaderImpl """
       return webgl.detachShader(program, shader);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram WebGLShader (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLProgram WebGLShader (Eff (canvas :: Canvas) Unit)
 
-detachShader :: forall eff. WebGLContext -> WebGLProgram -> WebGLShader -> Eff (canvas :: Canvas | eff) Unit
+detachShader :: WebGLContext -> WebGLProgram -> WebGLShader -> Eff (canvas :: Canvas) Unit
 detachShader = runFn3 detachShaderImpl
 
 foreign import disableImpl """
@@ -634,9 +634,9 @@ foreign import disableImpl """
       return webgl.disable(cap);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-disable :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+disable :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 disable = runFn2 disableImpl
 
 foreign import disableVertexAttribArrayImpl """
@@ -645,9 +645,9 @@ foreign import disableVertexAttribArrayImpl """
       return webgl.disableVertexAttribArray(index);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLuint (Eff (canvas :: Canvas) Unit)
 
-disableVertexAttribArray :: forall eff. WebGLContext -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+disableVertexAttribArray :: WebGLContext -> GLuint -> Eff (canvas :: Canvas) Unit
 disableVertexAttribArray = runFn2 disableVertexAttribArrayImpl
 
 foreign import drawArraysImpl """
@@ -656,9 +656,9 @@ foreign import drawArraysImpl """
       return webgl.drawArrays(mode, first, count);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLint GLsizei (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLint GLsizei (Eff (canvas :: Canvas) Unit)
 
-drawArrays :: forall eff. WebGLContext -> GLenum -> GLint -> GLsizei -> Eff (canvas :: Canvas | eff) Unit
+drawArrays :: WebGLContext -> GLenum -> GLint -> GLsizei -> Eff (canvas :: Canvas) Unit
 drawArrays = runFn4 drawArraysImpl
 
 foreign import drawElementsImpl """
@@ -667,9 +667,9 @@ foreign import drawElementsImpl """
       return webgl.drawElements(mode, count, type, offset);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLsizei GLenum GLintptr (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLsizei GLenum GLintptr (Eff (canvas :: Canvas) Unit)
 
-drawElements :: forall eff. WebGLContext -> GLenum -> GLsizei -> GLenum -> GLintptr -> Eff (canvas :: Canvas | eff) Unit
+drawElements :: WebGLContext -> GLenum -> GLsizei -> GLenum -> GLintptr -> Eff (canvas :: Canvas) Unit
 drawElements = runFn5 drawElementsImpl
 
 foreign import enableImpl """
@@ -678,9 +678,9 @@ foreign import enableImpl """
       return webgl.enable(cap);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-enable :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+enable :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 enable = runFn2 enableImpl
 
 foreign import enableVertexAttribArrayImpl """
@@ -689,9 +689,9 @@ foreign import enableVertexAttribArrayImpl """
       return webgl.enableVertexAttribArray(index);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLuint (Eff (canvas :: Canvas) Unit)
 
-enableVertexAttribArray :: forall eff. WebGLContext -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+enableVertexAttribArray :: WebGLContext -> GLuint -> Eff (canvas :: Canvas) Unit
 enableVertexAttribArray = runFn2 enableVertexAttribArrayImpl
 
 foreign import finishImpl """
@@ -700,9 +700,9 @@ foreign import finishImpl """
       return webgl.finish();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) Unit)
 
-finish :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) Unit
+finish :: WebGLContext -> Eff (canvas :: Canvas) Unit
 finish = runFn1 finishImpl
 
 foreign import flushImpl """
@@ -711,9 +711,9 @@ foreign import flushImpl """
       return webgl.flush();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) Unit)
 
-flush :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) Unit
+flush :: WebGLContext -> Eff (canvas :: Canvas) Unit
 flush = runFn1 flushImpl
 
 foreign import framebufferRenderbufferImpl """
@@ -722,9 +722,9 @@ foreign import framebufferRenderbufferImpl """
       return webgl.framebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLenum GLenum WebGLRenderbuffer (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLenum GLenum WebGLRenderbuffer (Eff (canvas :: Canvas) Unit)
 
-framebufferRenderbuffer :: forall eff. WebGLContext -> GLenum -> GLenum -> GLenum -> WebGLRenderbuffer -> Eff (canvas :: Canvas | eff) Unit
+framebufferRenderbuffer :: WebGLContext -> GLenum -> GLenum -> GLenum -> WebGLRenderbuffer -> Eff (canvas :: Canvas) Unit
 framebufferRenderbuffer = runFn5 framebufferRenderbufferImpl
 
 foreign import framebufferTexture2DImpl """
@@ -733,9 +733,9 @@ foreign import framebufferTexture2DImpl """
       return webgl.framebufferTexture2D(target, attachment, textarget, texture, level);
     };
   }
-""" :: forall eff. Fn6 WebGLContext GLenum GLenum GLenum WebGLTexture GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn6 WebGLContext GLenum GLenum GLenum WebGLTexture GLint (Eff (canvas :: Canvas) Unit)
 
-framebufferTexture2D :: forall eff. WebGLContext -> GLenum -> GLenum -> GLenum -> WebGLTexture -> GLint -> Eff (canvas :: Canvas | eff) Unit
+framebufferTexture2D :: WebGLContext -> GLenum -> GLenum -> GLenum -> WebGLTexture -> GLint -> Eff (canvas :: Canvas) Unit
 framebufferTexture2D = runFn6 framebufferTexture2DImpl
 
 foreign import frontFaceImpl """
@@ -744,9 +744,9 @@ foreign import frontFaceImpl """
       return webgl.frontFace(mode);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-frontFace :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+frontFace :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 frontFace = runFn2 frontFaceImpl
 
 foreign import generateMipmapImpl """
@@ -755,9 +755,9 @@ foreign import generateMipmapImpl """
       return webgl.generateMipmap(target);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) Unit)
 
-generateMipmap :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+generateMipmap :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) Unit
 generateMipmap = runFn2 generateMipmapImpl
 
 foreign import getActiveAttribImpl """
@@ -766,9 +766,9 @@ foreign import getActiveAttribImpl """
       return webgl.getActiveAttrib(program, index);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram GLuint (Eff (canvas :: Canvas | eff) WebGLActiveInfo)
+""" :: Fn3 WebGLContext WebGLProgram GLuint (Eff (canvas :: Canvas) WebGLActiveInfo)
 
-getActiveAttrib :: forall eff. WebGLContext -> WebGLProgram -> GLuint -> Eff (canvas :: Canvas | eff) WebGLActiveInfo
+getActiveAttrib :: WebGLContext -> WebGLProgram -> GLuint -> Eff (canvas :: Canvas) WebGLActiveInfo
 getActiveAttrib = runFn3 getActiveAttribImpl
 
 foreign import getActiveUniformImpl """
@@ -777,9 +777,9 @@ foreign import getActiveUniformImpl """
       return webgl.getActiveUniform(program, index);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram GLuint (Eff (canvas :: Canvas | eff) WebGLActiveInfo)
+""" :: Fn3 WebGLContext WebGLProgram GLuint (Eff (canvas :: Canvas) WebGLActiveInfo)
 
-getActiveUniform :: forall eff. WebGLContext -> WebGLProgram -> GLuint -> Eff (canvas :: Canvas | eff) WebGLActiveInfo
+getActiveUniform :: WebGLContext -> WebGLProgram -> GLuint -> Eff (canvas :: Canvas) WebGLActiveInfo
 getActiveUniform = runFn3 getActiveUniformImpl
 
 foreign import getAttachedShadersImpl """
@@ -788,9 +788,9 @@ foreign import getAttachedShadersImpl """
       return webgl.getAttachedShaders(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) [WebGLShader])
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) [WebGLShader])
 
-getAttachedShaders :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) [WebGLShader]
+getAttachedShaders :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) [WebGLShader]
 getAttachedShaders = runFn2 getAttachedShadersImpl
 
 foreign import getAttribLocationImpl """
@@ -799,9 +799,9 @@ foreign import getAttribLocationImpl """
       return webgl.getAttribLocation(program, name);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram DOMString (Eff (canvas :: Canvas | eff) GLint)
+""" :: Fn3 WebGLContext WebGLProgram DOMString (Eff (canvas :: Canvas) GLint)
 
-getAttribLocation :: forall eff. WebGLContext -> WebGLProgram -> DOMString -> Eff (canvas :: Canvas | eff) GLint
+getAttribLocation :: WebGLContext -> WebGLProgram -> DOMString -> Eff (canvas :: Canvas) GLint
 getAttribLocation = runFn3 getAttribLocationImpl
 
 foreign import getParameterImpl """
@@ -810,9 +810,9 @@ foreign import getParameterImpl """
       return webgl.getParameter(pname);
     };
   }
-""" :: forall eff a. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) a)
 
-getParameter :: forall eff a. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) a
+getParameter :: forall a. WebGLContext -> GLenum -> Eff (canvas :: Canvas) a
 getParameter = runFn2 getParameterImpl
 
 foreign import getBufferParameterImpl """
@@ -821,9 +821,9 @@ foreign import getBufferParameterImpl """
       return webgl.getBufferParameter(target, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) a)
 
-getBufferParameter :: forall eff a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) a
+getBufferParameter :: forall a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) a
 getBufferParameter = runFn3 getBufferParameterImpl
 
 foreign import getErrorImpl """
@@ -832,9 +832,9 @@ foreign import getErrorImpl """
       return webgl.getError();
     };
   }
-""" :: forall eff. Fn1 WebGLContext (Eff (canvas :: Canvas | eff) GLenum)
+""" :: Fn1 WebGLContext (Eff (canvas :: Canvas) GLenum)
 
-getError :: forall eff. WebGLContext -> Eff (canvas :: Canvas | eff) GLenum
+getError :: WebGLContext -> Eff (canvas :: Canvas) GLenum
 getError = runFn1 getErrorImpl
 
 foreign import getFramebufferAttachmentParameterImpl """
@@ -843,9 +843,9 @@ foreign import getFramebufferAttachmentParameterImpl """
       return webgl.getFramebufferAttachmentParameter(target, attachment, pname);
     };
   }
-""" :: forall eff a. Fn4 WebGLContext GLenum GLenum GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn4 WebGLContext GLenum GLenum GLenum (Eff (canvas :: Canvas) a)
 
-getFramebufferAttachmentParameter :: forall eff a. WebGLContext -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) a
+getFramebufferAttachmentParameter :: forall a. WebGLContext -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas) a
 getFramebufferAttachmentParameter = runFn4 getFramebufferAttachmentParameterImpl
 
 foreign import getProgramParameterImpl """
@@ -854,9 +854,9 @@ foreign import getProgramParameterImpl """
       return webgl.getProgramParameter(program, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext WebGLProgram GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext WebGLProgram GLenum (Eff (canvas :: Canvas) a)
 
-getProgramParameter :: forall eff a. WebGLContext -> WebGLProgram -> GLenum -> Eff (canvas :: Canvas | eff) a
+getProgramParameter :: forall a. WebGLContext -> WebGLProgram -> GLenum -> Eff (canvas :: Canvas) a
 getProgramParameter = runFn3 getProgramParameterImpl
 
 foreign import getProgramInfoLogImpl """
@@ -865,9 +865,9 @@ foreign import getProgramInfoLogImpl """
       return webgl.getProgramInfoLog(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) DOMString)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) DOMString)
 
-getProgramInfoLog :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) DOMString
+getProgramInfoLog :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) DOMString
 getProgramInfoLog = runFn2 getProgramInfoLogImpl
 
 foreign import getRenderbufferParameterImpl """
@@ -876,9 +876,9 @@ foreign import getRenderbufferParameterImpl """
       return webgl.getRenderbufferParameter(target, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) a)
 
-getRenderbufferParameter :: forall eff a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) a
+getRenderbufferParameter :: forall a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) a
 getRenderbufferParameter = runFn3 getRenderbufferParameterImpl
 
 foreign import getShaderParameterImpl """
@@ -887,9 +887,9 @@ foreign import getShaderParameterImpl """
       return webgl.getShaderParameter(shader, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext WebGLShader GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext WebGLShader GLenum (Eff (canvas :: Canvas) a)
 
-getShaderParameter :: forall eff a. WebGLContext -> WebGLShader -> GLenum -> Eff (canvas :: Canvas | eff) a
+getShaderParameter :: forall a. WebGLContext -> WebGLShader -> GLenum -> Eff (canvas :: Canvas) a
 getShaderParameter = runFn3 getShaderParameterImpl
 
 foreign import getShaderInfoLogImpl """
@@ -898,9 +898,9 @@ foreign import getShaderInfoLogImpl """
       return webgl.getShaderInfoLog(shader);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas | eff) DOMString)
+""" :: Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas) DOMString)
 
-getShaderInfoLog :: forall eff. WebGLContext -> WebGLShader -> Eff (canvas :: Canvas | eff) DOMString
+getShaderInfoLog :: WebGLContext -> WebGLShader -> Eff (canvas :: Canvas) DOMString
 getShaderInfoLog = runFn2 getShaderInfoLogImpl
 
 foreign import getShaderSourceImpl """
@@ -909,9 +909,9 @@ foreign import getShaderSourceImpl """
       return webgl.getShaderSource(shader);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas | eff) DOMString)
+""" :: Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas) DOMString)
 
-getShaderSource :: forall eff. WebGLContext -> WebGLShader -> Eff (canvas :: Canvas | eff) DOMString
+getShaderSource :: WebGLContext -> WebGLShader -> Eff (canvas :: Canvas) DOMString
 getShaderSource = runFn2 getShaderSourceImpl
 
 foreign import getTexParameterImpl """
@@ -920,9 +920,9 @@ foreign import getTexParameterImpl """
       return webgl.getTexParameter(target, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) a)
 
-getTexParameter :: forall eff a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) a
+getTexParameter :: forall a. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) a
 getTexParameter = runFn3 getTexParameterImpl
 
 foreign import getUniformImpl """
@@ -931,9 +931,9 @@ foreign import getUniformImpl """
       return webgl.getUniform(program, location);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext WebGLProgram WebGLUniformLocation (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext WebGLProgram WebGLUniformLocation (Eff (canvas :: Canvas) a)
 
-getUniform :: forall eff a. WebGLContext -> WebGLProgram -> WebGLUniformLocation -> Eff (canvas :: Canvas | eff) a
+getUniform :: forall a. WebGLContext -> WebGLProgram -> WebGLUniformLocation -> Eff (canvas :: Canvas) a
 getUniform = runFn3 getUniformImpl
 
 foreign import getUniformLocationImpl """
@@ -942,9 +942,9 @@ foreign import getUniformLocationImpl """
       return webgl.getUniformLocation(program, name);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLProgram DOMString (Eff (canvas :: Canvas | eff) WebGLUniformLocation)
+""" :: Fn3 WebGLContext WebGLProgram DOMString (Eff (canvas :: Canvas) WebGLUniformLocation)
 
-getUniformLocation :: forall eff. WebGLContext -> WebGLProgram -> DOMString -> Eff (canvas :: Canvas | eff) WebGLUniformLocation
+getUniformLocation :: WebGLContext -> WebGLProgram -> DOMString -> Eff (canvas :: Canvas) WebGLUniformLocation
 getUniformLocation = runFn3 getUniformLocationImpl
 
 foreign import getVertexAttribImpl """
@@ -953,9 +953,9 @@ foreign import getVertexAttribImpl """
       return webgl.getVertexAttrib(index, pname);
     };
   }
-""" :: forall eff a. Fn3 WebGLContext GLuint GLenum (Eff (canvas :: Canvas | eff) a)
+""" :: forall a. Fn3 WebGLContext GLuint GLenum (Eff (canvas :: Canvas) a)
 
-getVertexAttrib :: forall eff a. WebGLContext -> GLuint -> GLenum -> Eff (canvas :: Canvas | eff) a
+getVertexAttrib :: forall a. WebGLContext -> GLuint -> GLenum -> Eff (canvas :: Canvas) a
 getVertexAttrib = runFn3 getVertexAttribImpl
 
 foreign import getVertexAttribOffsetImpl """
@@ -964,9 +964,9 @@ foreign import getVertexAttribOffsetImpl """
       return webgl.getVertexAttribOffset(index, pname);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint GLenum (Eff (canvas :: Canvas | eff) GLsizeiptr)
+""" :: Fn3 WebGLContext GLuint GLenum (Eff (canvas :: Canvas) GLsizeiptr)
 
-getVertexAttribOffset :: forall eff. WebGLContext -> GLuint -> GLenum -> Eff (canvas :: Canvas | eff) GLsizeiptr
+getVertexAttribOffset :: WebGLContext -> GLuint -> GLenum -> Eff (canvas :: Canvas) GLsizeiptr
 getVertexAttribOffset = runFn3 getVertexAttribOffsetImpl
 
 foreign import hintImpl """
@@ -975,9 +975,9 @@ foreign import hintImpl """
       return webgl.hint(target, mode);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-hint :: forall eff. WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+hint :: WebGLContext -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 hint = runFn3 hintImpl
 
 foreign import isBufferImpl """
@@ -986,9 +986,9 @@ foreign import isBufferImpl """
       return webgl.isBuffer(buffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLBuffer (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLBuffer (Eff (canvas :: Canvas) GLboolean)
 
-isBuffer :: forall eff. WebGLContext -> WebGLBuffer -> Eff (canvas :: Canvas | eff) GLboolean
+isBuffer :: WebGLContext -> WebGLBuffer -> Eff (canvas :: Canvas) GLboolean
 isBuffer = runFn2 isBufferImpl
 
 foreign import isEnabledImpl """
@@ -997,9 +997,9 @@ foreign import isEnabledImpl """
       return webgl.isEnabled(cap);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLenum (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext GLenum (Eff (canvas :: Canvas) GLboolean)
 
-isEnabled :: forall eff. WebGLContext -> GLenum -> Eff (canvas :: Canvas | eff) GLboolean
+isEnabled :: WebGLContext -> GLenum -> Eff (canvas :: Canvas) GLboolean
 isEnabled = runFn2 isEnabledImpl
 
 foreign import isFramebufferImpl """
@@ -1008,9 +1008,9 @@ foreign import isFramebufferImpl """
       return webgl.isFramebuffer(framebuffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLFramebuffer (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLFramebuffer (Eff (canvas :: Canvas) GLboolean)
 
-isFramebuffer :: forall eff. WebGLContext -> WebGLFramebuffer -> Eff (canvas :: Canvas | eff) GLboolean
+isFramebuffer :: WebGLContext -> WebGLFramebuffer -> Eff (canvas :: Canvas) GLboolean
 isFramebuffer = runFn2 isFramebufferImpl
 
 foreign import isProgramImpl """
@@ -1019,9 +1019,9 @@ foreign import isProgramImpl """
       return webgl.isProgram(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) GLboolean)
 
-isProgram :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) GLboolean
+isProgram :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) GLboolean
 isProgram = runFn2 isProgramImpl
 
 foreign import isRenderbufferImpl """
@@ -1030,9 +1030,9 @@ foreign import isRenderbufferImpl """
       return webgl.isRenderbuffer(renderbuffer);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLRenderbuffer (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLRenderbuffer (Eff (canvas :: Canvas) GLboolean)
 
-isRenderbuffer :: forall eff. WebGLContext -> WebGLRenderbuffer -> Eff (canvas :: Canvas | eff) GLboolean
+isRenderbuffer :: WebGLContext -> WebGLRenderbuffer -> Eff (canvas :: Canvas) GLboolean
 isRenderbuffer = runFn2 isRenderbufferImpl
 
 foreign import isShaderImpl """
@@ -1041,9 +1041,9 @@ foreign import isShaderImpl """
       return webgl.isShader(shader);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLShader (Eff (canvas :: Canvas) GLboolean)
 
-isShader :: forall eff. WebGLContext -> WebGLShader -> Eff (canvas :: Canvas | eff) GLboolean
+isShader :: WebGLContext -> WebGLShader -> Eff (canvas :: Canvas) GLboolean
 isShader = runFn2 isShaderImpl
 
 foreign import isTextureImpl """
@@ -1052,9 +1052,9 @@ foreign import isTextureImpl """
       return webgl.isTexture(texture);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLTexture (Eff (canvas :: Canvas | eff) GLboolean)
+""" :: Fn2 WebGLContext WebGLTexture (Eff (canvas :: Canvas) GLboolean)
 
-isTexture :: forall eff. WebGLContext -> WebGLTexture -> Eff (canvas :: Canvas | eff) GLboolean
+isTexture :: WebGLContext -> WebGLTexture -> Eff (canvas :: Canvas) GLboolean
 isTexture = runFn2 isTextureImpl
 
 foreign import lineWidthImpl """
@@ -1063,9 +1063,9 @@ foreign import lineWidthImpl """
       return webgl.lineWidth(width);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLfloat (Eff (canvas :: Canvas) Unit)
 
-lineWidth :: forall eff. WebGLContext -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+lineWidth :: WebGLContext -> GLfloat -> Eff (canvas :: Canvas) Unit
 lineWidth = runFn2 lineWidthImpl
 
 foreign import linkProgramImpl """
@@ -1074,9 +1074,9 @@ foreign import linkProgramImpl """
       return webgl.linkProgram(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) Unit)
 
-linkProgram :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) Unit
+linkProgram :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) Unit
 linkProgram = runFn2 linkProgramImpl
 
 foreign import pixelStoreiImpl """
@@ -1085,9 +1085,9 @@ foreign import pixelStoreiImpl """
       return webgl.pixelStorei(pname, param);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum GLint (Eff (canvas :: Canvas) Unit)
 
-pixelStorei :: forall eff. WebGLContext -> GLenum -> GLint -> Eff (canvas :: Canvas | eff) Unit
+pixelStorei :: WebGLContext -> GLenum -> GLint -> Eff (canvas :: Canvas) Unit
 pixelStorei = runFn3 pixelStoreiImpl
 
 foreign import polygonOffsetImpl """
@@ -1096,9 +1096,9 @@ foreign import polygonOffsetImpl """
       return webgl.polygonOffset(factor, units);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-polygonOffset :: forall eff. WebGLContext -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+polygonOffset :: WebGLContext -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 polygonOffset = runFn3 polygonOffsetImpl
 
 foreign import readPixelsImpl """
@@ -1107,9 +1107,9 @@ foreign import readPixelsImpl """
       return webgl.readPixels(x, y, width, height, format, type, pixels);
     };
   }
-""" :: forall eff. Fn8 WebGLContext GLint GLint GLsizei GLsizei GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn8 WebGLContext GLint GLint GLsizei GLsizei GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas) Unit)
 
-readPixels :: forall eff. WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas | eff) Unit
+readPixels :: WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas) Unit
 readPixels = runFn8 readPixelsImpl
 
 foreign import renderbufferStorageImpl """
@@ -1118,9 +1118,9 @@ foreign import renderbufferStorageImpl """
       return webgl.renderbufferStorage(target, internalformat, width, height);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLenum GLsizei GLsizei (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLenum GLsizei GLsizei (Eff (canvas :: Canvas) Unit)
 
-renderbufferStorage :: forall eff. WebGLContext -> GLenum -> GLenum -> GLsizei -> GLsizei -> Eff (canvas :: Canvas | eff) Unit
+renderbufferStorage :: WebGLContext -> GLenum -> GLenum -> GLsizei -> GLsizei -> Eff (canvas :: Canvas) Unit
 renderbufferStorage = runFn5 renderbufferStorageImpl
 
 foreign import sampleCoverageImpl """
@@ -1129,9 +1129,9 @@ foreign import sampleCoverageImpl """
       return webgl.sampleCoverage(value, invert);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLclampf GLboolean (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLclampf GLboolean (Eff (canvas :: Canvas) Unit)
 
-sampleCoverage :: forall eff. WebGLContext -> GLclampf -> GLboolean -> Eff (canvas :: Canvas | eff) Unit
+sampleCoverage :: WebGLContext -> GLclampf -> GLboolean -> Eff (canvas :: Canvas) Unit
 sampleCoverage = runFn3 sampleCoverageImpl
 
 foreign import scissorImpl """
@@ -1140,9 +1140,9 @@ foreign import scissorImpl """
       return webgl.scissor(x, y, width, height);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas) Unit)
 
-scissor :: forall eff. WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas | eff) Unit
+scissor :: WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas) Unit
 scissor = runFn5 scissorImpl
 
 foreign import shaderSourceImpl """
@@ -1151,9 +1151,9 @@ foreign import shaderSourceImpl """
       return webgl.shaderSource(shader, source);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLShader DOMString (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLShader DOMString (Eff (canvas :: Canvas) Unit)
 
-shaderSource :: forall eff. WebGLContext -> WebGLShader -> DOMString -> Eff (canvas :: Canvas | eff) Unit
+shaderSource :: WebGLContext -> WebGLShader -> DOMString -> Eff (canvas :: Canvas) Unit
 shaderSource = runFn3 shaderSourceImpl
 
 foreign import stencilFuncImpl """
@@ -1162,9 +1162,9 @@ foreign import stencilFuncImpl """
       return webgl.stencilFunc(func, ref, mask);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLint GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLint GLuint (Eff (canvas :: Canvas) Unit)
 
-stencilFunc :: forall eff. WebGLContext -> GLenum -> GLint -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+stencilFunc :: WebGLContext -> GLenum -> GLint -> GLuint -> Eff (canvas :: Canvas) Unit
 stencilFunc = runFn4 stencilFuncImpl
 
 foreign import stencilFuncSeparateImpl """
@@ -1173,9 +1173,9 @@ foreign import stencilFuncSeparateImpl """
       return webgl.stencilFuncSeparate(face, func, ref, mask);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLenum GLint GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLenum GLint GLuint (Eff (canvas :: Canvas) Unit)
 
-stencilFuncSeparate :: forall eff. WebGLContext -> GLenum -> GLenum -> GLint -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+stencilFuncSeparate :: WebGLContext -> GLenum -> GLenum -> GLint -> GLuint -> Eff (canvas :: Canvas) Unit
 stencilFuncSeparate = runFn5 stencilFuncSeparateImpl
 
 foreign import stencilMaskImpl """
@@ -1184,9 +1184,9 @@ foreign import stencilMaskImpl """
       return webgl.stencilMask(mask);
     };
   }
-""" :: forall eff. Fn2 WebGLContext GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext GLuint (Eff (canvas :: Canvas) Unit)
 
-stencilMask :: forall eff. WebGLContext -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+stencilMask :: WebGLContext -> GLuint -> Eff (canvas :: Canvas) Unit
 stencilMask = runFn2 stencilMaskImpl
 
 foreign import stencilMaskSeparateImpl """
@@ -1195,9 +1195,9 @@ foreign import stencilMaskSeparateImpl """
       return webgl.stencilMaskSeparate(face, mask);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLenum GLuint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLenum GLuint (Eff (canvas :: Canvas) Unit)
 
-stencilMaskSeparate :: forall eff. WebGLContext -> GLenum -> GLuint -> Eff (canvas :: Canvas | eff) Unit
+stencilMaskSeparate :: WebGLContext -> GLenum -> GLuint -> Eff (canvas :: Canvas) Unit
 stencilMaskSeparate = runFn3 stencilMaskSeparateImpl
 
 foreign import stencilOpImpl """
@@ -1206,9 +1206,9 @@ foreign import stencilOpImpl """
       return webgl.stencilOp(fail, zfail, zpass);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-stencilOp :: forall eff. WebGLContext -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+stencilOp :: WebGLContext -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 stencilOp = runFn4 stencilOpImpl
 
 foreign import stencilOpSeparateImpl """
@@ -1217,9 +1217,9 @@ foreign import stencilOpSeparateImpl """
       return webgl.stencilOpSeparate(face, fail, zfail, zpass);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLenum GLenum GLenum GLenum (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLenum GLenum GLenum GLenum (Eff (canvas :: Canvas) Unit)
 
-stencilOpSeparate :: forall eff. WebGLContext -> GLenum -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas | eff) Unit
+stencilOpSeparate :: WebGLContext -> GLenum -> GLenum -> GLenum -> GLenum -> Eff (canvas :: Canvas) Unit
 stencilOpSeparate = runFn5 stencilOpSeparateImpl
 
 foreign import texImage2DImpl """
@@ -1228,9 +1228,9 @@ foreign import texImage2DImpl """
       return webgl.texImage2D(target, level, internalformat, width, height, border, format, type, pixels);
     };
   }
-""" :: forall eff. Fn10 WebGLContext GLenum GLint GLenum GLsizei GLsizei GLint GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn10 WebGLContext GLenum GLint GLenum GLsizei GLsizei GLint GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas) Unit)
 
-texImage2D :: forall eff. WebGLContext -> GLenum -> GLint -> GLenum -> GLsizei -> GLsizei -> GLint -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas | eff) Unit
+texImage2D :: WebGLContext -> GLenum -> GLint -> GLenum -> GLsizei -> GLsizei -> GLint -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas) Unit
 texImage2D = runFn10 texImage2DImpl
 
 foreign import texParameterfImpl """
@@ -1239,9 +1239,9 @@ foreign import texParameterfImpl """
       return webgl.texParameterf(target, pname, param);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLenum GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLenum GLfloat (Eff (canvas :: Canvas) Unit)
 
-texParameterf :: forall eff. WebGLContext -> GLenum -> GLenum -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+texParameterf :: WebGLContext -> GLenum -> GLenum -> GLfloat -> Eff (canvas :: Canvas) Unit
 texParameterf = runFn4 texParameterfImpl
 
 foreign import texParameteriImpl """
@@ -1250,9 +1250,9 @@ foreign import texParameteriImpl """
       return webgl.texParameteri(target, pname, param);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLenum GLenum GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLenum GLenum GLint (Eff (canvas :: Canvas) Unit)
 
-texParameteri :: forall eff. WebGLContext -> GLenum -> GLenum -> GLint -> Eff (canvas :: Canvas | eff) Unit
+texParameteri :: WebGLContext -> GLenum -> GLenum -> GLint -> Eff (canvas :: Canvas) Unit
 texParameteri = runFn4 texParameteriImpl
 
 foreign import texSubImage2DImpl """
@@ -1261,9 +1261,9 @@ foreign import texSubImage2DImpl """
       return webgl.texSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
     };
   }
-""" :: forall eff. Fn10 WebGLContext GLenum GLint GLint GLint GLsizei GLsizei GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn10 WebGLContext GLenum GLint GLint GLint GLsizei GLsizei GLenum GLenum ArrayBufferView (Eff (canvas :: Canvas) Unit)
 
-texSubImage2D :: forall eff. WebGLContext -> GLenum -> GLint -> GLint -> GLint -> GLsizei -> GLsizei -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas | eff) Unit
+texSubImage2D :: WebGLContext -> GLenum -> GLint -> GLint -> GLint -> GLsizei -> GLsizei -> GLenum -> GLenum -> ArrayBufferView -> Eff (canvas :: Canvas) Unit
 texSubImage2D = runFn10 texSubImage2DImpl
 
 foreign import uniform1fImpl """
@@ -1272,9 +1272,9 @@ foreign import uniform1fImpl """
       return webgl.uniform1f(location, x);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation GLfloat (Eff (canvas :: Canvas) Unit)
 
-uniform1f :: forall eff. WebGLContext -> WebGLUniformLocation -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+uniform1f :: WebGLContext -> WebGLUniformLocation -> GLfloat -> Eff (canvas :: Canvas) Unit
 uniform1f = runFn3 uniform1fImpl
 
 foreign import uniform1fvImpl """
@@ -1283,9 +1283,9 @@ foreign import uniform1fvImpl """
       return webgl.uniform1fv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniform1fv :: forall eff. WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniform1fv :: WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniform1fv = runFn3 uniform1fvImpl
 
 foreign import uniform1iImpl """
@@ -1294,9 +1294,9 @@ foreign import uniform1iImpl """
       return webgl.uniform1i(location, x);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation GLint (Eff (canvas :: Canvas) Unit)
 
-uniform1i :: forall eff. WebGLContext -> WebGLUniformLocation -> GLint -> Eff (canvas :: Canvas | eff) Unit
+uniform1i :: WebGLContext -> WebGLUniformLocation -> GLint -> Eff (canvas :: Canvas) Unit
 uniform1i = runFn3 uniform1iImpl
 
 foreign import uniform1ivImpl """
@@ -1305,9 +1305,9 @@ foreign import uniform1ivImpl """
       return webgl.uniform1iv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas) Unit)
 
-uniform1iv :: forall eff. WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas | eff) Unit
+uniform1iv :: WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas) Unit
 uniform1iv = runFn3 uniform1ivImpl
 
 foreign import uniform2fImpl """
@@ -1316,9 +1316,9 @@ foreign import uniform2fImpl """
       return webgl.uniform2f(location, x, y);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLUniformLocation GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLUniformLocation GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-uniform2f :: forall eff. WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+uniform2f :: WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 uniform2f = runFn4 uniform2fImpl
 
 foreign import uniform2fvImpl """
@@ -1327,9 +1327,9 @@ foreign import uniform2fvImpl """
       return webgl.uniform2fv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniform2fv :: forall eff. WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniform2fv :: WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniform2fv = runFn3 uniform2fvImpl
 
 foreign import uniform2iImpl """
@@ -1338,9 +1338,9 @@ foreign import uniform2iImpl """
       return webgl.uniform2i(location, x, y);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLUniformLocation GLint GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLUniformLocation GLint GLint (Eff (canvas :: Canvas) Unit)
 
-uniform2i :: forall eff. WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> Eff (canvas :: Canvas | eff) Unit
+uniform2i :: WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> Eff (canvas :: Canvas) Unit
 uniform2i = runFn4 uniform2iImpl
 
 foreign import uniform2ivImpl """
@@ -1349,9 +1349,9 @@ foreign import uniform2ivImpl """
       return webgl.uniform2iv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas) Unit)
 
-uniform2iv :: forall eff. WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas | eff) Unit
+uniform2iv :: WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas) Unit
 uniform2iv = runFn3 uniform2ivImpl
 
 foreign import uniform3fImpl """
@@ -1360,9 +1360,9 @@ foreign import uniform3fImpl """
       return webgl.uniform3f(location, x, y, z);
     };
   }
-""" :: forall eff. Fn5 WebGLContext WebGLUniformLocation GLfloat GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext WebGLUniformLocation GLfloat GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-uniform3f :: forall eff. WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+uniform3f :: WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 uniform3f = runFn5 uniform3fImpl
 
 foreign import uniform3fvImpl """
@@ -1371,9 +1371,9 @@ foreign import uniform3fvImpl """
       return webgl.uniform3fv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniform3fv :: forall eff. WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniform3fv :: WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniform3fv = runFn3 uniform3fvImpl
 
 foreign import uniform3iImpl """
@@ -1382,9 +1382,9 @@ foreign import uniform3iImpl """
       return webgl.uniform3i(location, x, y, z);
     };
   }
-""" :: forall eff. Fn5 WebGLContext WebGLUniformLocation GLint GLint GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext WebGLUniformLocation GLint GLint GLint (Eff (canvas :: Canvas) Unit)
 
-uniform3i :: forall eff. WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> GLint -> Eff (canvas :: Canvas | eff) Unit
+uniform3i :: WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> GLint -> Eff (canvas :: Canvas) Unit
 uniform3i = runFn5 uniform3iImpl
 
 foreign import uniform3ivImpl """
@@ -1393,9 +1393,9 @@ foreign import uniform3ivImpl """
       return webgl.uniform3iv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas) Unit)
 
-uniform3iv :: forall eff. WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas | eff) Unit
+uniform3iv :: WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas) Unit
 uniform3iv = runFn3 uniform3ivImpl
 
 foreign import uniform4fImpl """
@@ -1404,9 +1404,9 @@ foreign import uniform4fImpl """
       return webgl.uniform4f(location, x, y, z, w);
     };
   }
-""" :: forall eff. Fn6 WebGLContext WebGLUniformLocation GLfloat GLfloat GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn6 WebGLContext WebGLUniformLocation GLfloat GLfloat GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-uniform4f :: forall eff. WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+uniform4f :: WebGLContext -> WebGLUniformLocation -> GLfloat -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 uniform4f = runFn6 uniform4fImpl
 
 foreign import uniform4fvImpl """
@@ -1415,9 +1415,9 @@ foreign import uniform4fvImpl """
       return webgl.uniform4fv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniform4fv :: forall eff. WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniform4fv :: WebGLContext -> WebGLUniformLocation -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniform4fv = runFn3 uniform4fvImpl
 
 foreign import uniform4iImpl """
@@ -1426,9 +1426,9 @@ foreign import uniform4iImpl """
       return webgl.uniform4i(location, x, y, z, w);
     };
   }
-""" :: forall eff. Fn6 WebGLContext WebGLUniformLocation GLint GLint GLint GLint (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn6 WebGLContext WebGLUniformLocation GLint GLint GLint GLint (Eff (canvas :: Canvas) Unit)
 
-uniform4i :: forall eff. WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> GLint -> GLint -> Eff (canvas :: Canvas | eff) Unit
+uniform4i :: WebGLContext -> WebGLUniformLocation -> GLint -> GLint -> GLint -> GLint -> Eff (canvas :: Canvas) Unit
 uniform4i = runFn6 uniform4iImpl
 
 foreign import uniform4ivImpl """
@@ -1437,9 +1437,9 @@ foreign import uniform4ivImpl """
       return webgl.uniform4iv(location, v);
     };
   }
-""" :: forall eff. Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext WebGLUniformLocation Int32Array (Eff (canvas :: Canvas) Unit)
 
-uniform4iv :: forall eff. WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas | eff) Unit
+uniform4iv :: WebGLContext -> WebGLUniformLocation -> Int32Array -> Eff (canvas :: Canvas) Unit
 uniform4iv = runFn3 uniform4ivImpl
 
 foreign import uniformMatrix2fvImpl """
@@ -1448,9 +1448,9 @@ foreign import uniformMatrix2fvImpl """
       return webgl.uniformMatrix2fv(location, transpose, value);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniformMatrix2fv :: forall eff. WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniformMatrix2fv :: WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniformMatrix2fv = runFn4 uniformMatrix2fvImpl
 
 foreign import uniformMatrix3fvImpl """
@@ -1459,9 +1459,9 @@ foreign import uniformMatrix3fvImpl """
       return webgl.uniformMatrix3fv(location, transpose, value);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniformMatrix3fv :: forall eff. WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniformMatrix3fv :: WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniformMatrix3fv = runFn4 uniformMatrix3fvImpl
 
 foreign import uniformMatrix4fvImpl """
@@ -1470,9 +1470,9 @@ foreign import uniformMatrix4fvImpl """
       return webgl.uniformMatrix4fv(location, transpose, value);
     };
   }
-""" :: forall eff. Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext WebGLUniformLocation GLboolean FloatArray (Eff (canvas :: Canvas) Unit)
 
-uniformMatrix4fv :: forall eff. WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+uniformMatrix4fv :: WebGLContext -> WebGLUniformLocation -> GLboolean -> FloatArray -> Eff (canvas :: Canvas) Unit
 uniformMatrix4fv = runFn4 uniformMatrix4fvImpl
 
 foreign import useProgramImpl """
@@ -1481,9 +1481,9 @@ foreign import useProgramImpl """
       return webgl.useProgram(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) Unit)
 
-useProgram :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) Unit
+useProgram :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) Unit
 useProgram = runFn2 useProgramImpl
 
 foreign import validateProgramImpl """
@@ -1492,9 +1492,9 @@ foreign import validateProgramImpl """
       return webgl.validateProgram(program);
     };
   }
-""" :: forall eff. Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn2 WebGLContext WebGLProgram (Eff (canvas :: Canvas) Unit)
 
-validateProgram :: forall eff. WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas | eff) Unit
+validateProgram :: WebGLContext -> WebGLProgram -> Eff (canvas :: Canvas) Unit
 validateProgram = runFn2 validateProgramImpl
 
 foreign import vertexAttrib1fImpl """
@@ -1503,9 +1503,9 @@ foreign import vertexAttrib1fImpl """
       return webgl.vertexAttrib1f(indx, x);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLuint GLfloat (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib1f :: forall eff. WebGLContext -> GLuint -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib1f :: WebGLContext -> GLuint -> GLfloat -> Eff (canvas :: Canvas) Unit
 vertexAttrib1f = runFn3 vertexAttrib1fImpl
 
 foreign import vertexAttrib1fvImpl """
@@ -1514,9 +1514,9 @@ foreign import vertexAttrib1fvImpl """
       return webgl.vertexAttrib1fv(indx, values);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib1fv :: forall eff. WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib1fv :: WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas) Unit
 vertexAttrib1fv = runFn3 vertexAttrib1fvImpl
 
 foreign import vertexAttrib2fImpl """
@@ -1525,9 +1525,9 @@ foreign import vertexAttrib2fImpl """
       return webgl.vertexAttrib2f(indx, x, y);
     };
   }
-""" :: forall eff. Fn4 WebGLContext GLuint GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn4 WebGLContext GLuint GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib2f :: forall eff. WebGLContext -> GLuint -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib2f :: WebGLContext -> GLuint -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 vertexAttrib2f = runFn4 vertexAttrib2fImpl
 
 foreign import vertexAttrib2fvImpl """
@@ -1536,9 +1536,9 @@ foreign import vertexAttrib2fvImpl """
       return webgl.vertexAttrib2fv(indx, values);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib2fv :: forall eff. WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib2fv :: WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas) Unit
 vertexAttrib2fv = runFn3 vertexAttrib2fvImpl
 
 foreign import vertexAttrib3fImpl """
@@ -1547,9 +1547,9 @@ foreign import vertexAttrib3fImpl """
       return webgl.vertexAttrib3f(indx, x, y, z);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLuint GLfloat GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLuint GLfloat GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib3f :: forall eff. WebGLContext -> GLuint -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib3f :: WebGLContext -> GLuint -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 vertexAttrib3f = runFn5 vertexAttrib3fImpl
 
 foreign import vertexAttrib3fvImpl """
@@ -1558,9 +1558,9 @@ foreign import vertexAttrib3fvImpl """
       return webgl.vertexAttrib3fv(indx, values);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib3fv :: forall eff. WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib3fv :: WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas) Unit
 vertexAttrib3fv = runFn3 vertexAttrib3fvImpl
 
 foreign import vertexAttrib4fImpl """
@@ -1569,9 +1569,9 @@ foreign import vertexAttrib4fImpl """
       return webgl.vertexAttrib4f(indx, x, y, z, w);
     };
   }
-""" :: forall eff. Fn6 WebGLContext GLuint GLfloat GLfloat GLfloat GLfloat (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn6 WebGLContext GLuint GLfloat GLfloat GLfloat GLfloat (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib4f :: forall eff. WebGLContext -> GLuint -> GLfloat -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib4f :: WebGLContext -> GLuint -> GLfloat -> GLfloat -> GLfloat -> GLfloat -> Eff (canvas :: Canvas) Unit
 vertexAttrib4f = runFn6 vertexAttrib4fImpl
 
 foreign import vertexAttrib4fvImpl """
@@ -1580,9 +1580,9 @@ foreign import vertexAttrib4fvImpl """
       return webgl.vertexAttrib4fv(indx, values);
     };
   }
-""" :: forall eff. Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn3 WebGLContext GLuint FloatArray (Eff (canvas :: Canvas) Unit)
 
-vertexAttrib4fv :: forall eff. WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas | eff) Unit
+vertexAttrib4fv :: WebGLContext -> GLuint -> FloatArray -> Eff (canvas :: Canvas) Unit
 vertexAttrib4fv = runFn3 vertexAttrib4fvImpl
 
 foreign import vertexAttribPointerImpl """
@@ -1591,9 +1591,9 @@ foreign import vertexAttribPointerImpl """
       return webgl.vertexAttribPointer(indx, size, type, normalized, stride, offset);
     };
   }
-""" :: forall eff. Fn7 WebGLContext GLuint GLint GLenum GLboolean GLsizei GLintptr (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn7 WebGLContext GLuint GLint GLenum GLboolean GLsizei GLintptr (Eff (canvas :: Canvas) Unit)
 
-vertexAttribPointer :: forall eff. WebGLContext -> GLuint -> GLint -> GLenum -> GLboolean -> GLsizei -> GLintptr -> Eff (canvas :: Canvas | eff) Unit
+vertexAttribPointer :: WebGLContext -> GLuint -> GLint -> GLenum -> GLboolean -> GLsizei -> GLintptr -> Eff (canvas :: Canvas) Unit
 vertexAttribPointer = runFn7 vertexAttribPointerImpl
 
 foreign import viewportImpl """
@@ -1602,8 +1602,8 @@ foreign import viewportImpl """
       return webgl.viewport(x, y, width, height);
     };
   }
-""" :: forall eff. Fn5 WebGLContext GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas | eff) Unit)
+""" :: Fn5 WebGLContext GLint GLint GLsizei GLsizei (Eff (canvas :: Canvas) Unit)
 
-viewport :: forall eff. WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas | eff) Unit
+viewport :: WebGLContext -> GLint -> GLint -> GLsizei -> GLsizei -> Eff (canvas :: Canvas) Unit
 viewport = runFn5 viewportImpl
 

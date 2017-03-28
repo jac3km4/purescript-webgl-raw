@@ -1,7 +1,5 @@
 "use strict";
 
-// module Graphics.WebGL.Raw.Util
-
 exports.toMaybeImpl = function (Nothing, Just, x) {
   if (x === undefined || x === null) {
     return Nothing;

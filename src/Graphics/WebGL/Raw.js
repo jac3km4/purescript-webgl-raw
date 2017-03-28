@@ -1,7 +1,5 @@
 "use strict";
 
-// module Graphics.WebGL.Raw
-
 exports.activeTextureImpl = function (webgl, texture) {
   return function () {
     return webgl.activeTexture(texture);
@@ -925,4 +923,3 @@ exports.viewportImpl = function (webgl, x, y, width, height) {
     return webgl.viewport(x, y, width, height);
   };
 }
-

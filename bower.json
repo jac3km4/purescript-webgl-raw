@@ -11,13 +11,12 @@
     "generator"
   ],
   "dependencies": {
-    "purescript-canvas": "2.0.0",
-    "purescript-eff": "2.0.0",
-    "purescript-functions": "2.0.0",
-    "purescript-arraybuffer-types": "0.2.0",
-    "purescript-maybe": "2.1.1",
-    "purescript-typedarray": "1.2.4",
-    "purescript-psci-support": "2.0.0"
+    "purescript-typedarray": "git@github.com:geneshuman/purescript-typedarray.git#4.0.0",
+    "purescript-canvas": "4.0.0",
+    "purescript-functions": "4.0.0",
+    "purescript-maybe": "4.0.0",
+    "purescript-arraybuffer-types": "2.0.0",
+    "purescript-psci-support": "4.0.0"
   }
 
 }

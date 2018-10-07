@@ -20,18 +20,18 @@ type GLubyte          = Int
 type GLuint           = Int
 type GLushort         = Int
 
-foreign import data ArrayBufferView :: *
-foreign import data TexImageSource :: *
-foreign import data WebGLActiveInfo :: *
-foreign import data WebGLBuffer :: *
-foreign import data WebGLContext :: *
-foreign import data WebGLFramebuffer :: *
-foreign import data WebGLProgram :: *
-foreign import data WebGLRenderbuffer :: *
-foreign import data WebGLShader :: *
-foreign import data WebGLShaderPrecisionFormat :: *
-foreign import data WebGLTexture :: *
-foreign import data WebGLUniformLocation :: *
+foreign import data ArrayBufferView :: Type
+foreign import data TexImageSource :: Type
+foreign import data WebGLActiveInfo :: Type
+foreign import data WebGLBuffer :: Type
+foreign import data WebGLContext :: Type
+foreign import data WebGLFramebuffer :: Type
+foreign import data WebGLProgram :: Type
+foreign import data WebGLRenderbuffer :: Type
+foreign import data WebGLShader :: Type
+foreign import data WebGLShaderPrecisionFormat :: Type
+foreign import data WebGLTexture :: Type
+foreign import data WebGLUniformLocation :: Type
 
 type WebGLContextAttributes =
   { alpha                           :: Boolean
